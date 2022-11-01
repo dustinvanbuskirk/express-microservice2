@@ -1,0 +1,11 @@
+{
+  "head_commit": {
+    "added": [
+      "spec-1.yaml"
+    ],
+    "removed": [],
+    "modified": [
+      "spec-100.yaml"
+    ]
+  }
+}
