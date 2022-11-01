@@ -36,7 +36,7 @@ jobs:
         CF_REGISTRY_USERNAME: '_json_key'
         CF_REGISTRY_PASSWORD: '${{ secrets.SA_JSON }}'
         CF_REGISTRY_DOMAIN: 'gcr.io'
-        CF_GIT_BRANCH: '${{ github.ref_name }}'
+        CF_GIT_BRANCH: '${{ github.head_ref }}'
         CF_GITHUB_TOKEN: '${{ github.token }}'
         CF_JIRA_INTEGRATION: 'cf-demo-jira'
         CF_JIRA_PROJECT_PREFIX: 'KPT'
