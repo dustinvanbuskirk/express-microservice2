@@ -38,6 +38,6 @@ jobs:
         CF_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         CF_JIRA_API_TOKEN: '${{ secrets.JIRA_API_TOKEN }}'
         CF_JIRA_EMAIL: 'dustin@codefresh.io'
-        CF_JIRA_HOST_URL: 'https://cf-demo-jira.atlassian.net/'
+        CF_JIRA_HOST_URL: 'https://cf-demo-jira.atlassian.net'
         CF_JIRA_PROJECT_PREFIX: 'KPT'
         CF_JIRA_MESSAGE: 'KPT-30'
