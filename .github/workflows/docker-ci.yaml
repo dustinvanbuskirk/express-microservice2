@@ -29,7 +29,6 @@ jobs:
       uses: codefresh-io/codefresh-report-image@latest
       with:
         CF_HOST: 'https://cf.pov.sales-dev.codefresh.io'
-        CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
         CF_API_KEY: '${{ secrets.CF_API_KEY }}'
         CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.sha }}'
         CF_REGISTRY_USERNAME: "_json_key"
@@ -37,6 +36,8 @@ jobs:
         CF_REGISTRY_DOMAIN: "gcr.io"
         CF_GIT_BRANCH: 'main'
         CF_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-        CF_JIRA_INTEGRATION: 'cf-demo-jira'
+        CF_JIRA_API_TOKEN: '${{ secrets.JIRA_API_TOKEN }}'
+        CF_JIRA_EMAIL: 'dustin@codefresh.io'
+        CF_JIRA_HOST_URL: 'https://cf-demo-jira.atlassian.net/'
         CF_JIRA_PROJECT_PREFIX: 'KPT'
         CF_JIRA_MESSAGE: 'KPT-30'
