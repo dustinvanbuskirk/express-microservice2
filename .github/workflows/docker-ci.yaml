@@ -1,0 +1,39 @@
+name: Docker Image CI
+
+on: [ pull_request ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag gcr.io/codesfresh-sa/express-app:${{ github.sha }}
+
+    - name: Push To Registry
+      uses: redhat-actions/push-to-registry@v2.5.1
+      with:
+        image: salesdemocf/guestbook
+        tags: ${{ github.sha }}
+        registry: gcr.io
+        username: _json_key
+        password: ${{ secrets.SA_JSON }}
+
+    - name: Report Image to Codefresh
+      uses: codefresh-io/codefresh-report-image@latest
+      with:
+        CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
+        CF_API_KEY: '${{ secrets.CF_API_KEY }}'
+        CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.sha }}'
+        CF_REGISTRY_USERNAME: "_json_key"
+        CF_REGISTRY_PASSWORD: "${{ secrets.SA_JSON }}"
+        CF_REGISTRY_DOMAIN: "gcr.io"
+        CF_GIT_BRANCH: 'main'
+        CF_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        CF_JIRA_INTEGRATION: 'cf-demo-jira'
+        CF_JIRA_PROJECT_PREFIX: 'KPT'
+        CF_JIRA_MESSAGE: 'KPT-30'
