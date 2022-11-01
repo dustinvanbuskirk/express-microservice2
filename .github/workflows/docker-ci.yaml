@@ -28,7 +28,7 @@ jobs:
     - name: Report Image to Codefresh
       uses: codefresh-io/codefresh-report-image@latest
       with:
-        CF_HOST: 'https://cf.pov.sales-dev.codefresh.io'
+        CF_HOST_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_API_KEY: '${{ secrets.CF_API_KEY }}'
         CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.sha }}'
         CF_REGISTRY_USERNAME: "_json_key"
