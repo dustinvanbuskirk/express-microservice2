@@ -17,7 +17,7 @@ jobs:
     - name: Push To Registry
       uses: redhat-actions/push-to-registry@v2.5.1
       with:
-        image: salesdemocf/guestbook
+        image: gcr.io/codesfresh-sa/express-app
         tags: ${{ github.sha }}
         registry: gcr.io
         username: _json_key
