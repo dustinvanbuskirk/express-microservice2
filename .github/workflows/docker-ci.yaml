@@ -27,6 +27,7 @@ jobs:
 
     - name: Report Image to Codefresh
       uses: codefresh-io/codefresh-report-image@latest
+      continue-on-error: true
       with:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
@@ -40,5 +41,5 @@ jobs:
         CF_JIRA_INTEGRATION: 'cf-demo-jira'
         CF_JIRA_PROJECT_PREFIX: 'KPT'
         CF_JIRA_MESSAGE: 'KPT-30'
-        CF_ENRICHERS: 'github, jira'
+        CF_ENRICHERS: 'git, jira'
         CF_VERBOSE: true
