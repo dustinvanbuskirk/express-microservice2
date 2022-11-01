@@ -29,7 +29,7 @@ jobs:
       uses: codefresh-io/codefresh-report-image@latest
       with:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
-        CF_HOST: 'https://pov-codefresh-istio-runtime.sales-dev.codefresh.io'
+        CF_HOST: 'pov-codefresh-istio-runtime'
         CF_API_KEY: '${{ secrets.CF_API_KEY }}'
         CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.sha }}'
         CF_REGISTRY_USERNAME: '_json_key'
