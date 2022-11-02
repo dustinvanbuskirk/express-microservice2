@@ -27,7 +27,6 @@ jobs:
 
     - name: Report Image to Codefresh
       uses: codefresh-io/codefresh-report-image@latest
-      continue-on-error: true
       with:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
@@ -37,7 +36,7 @@ jobs:
         CF_REGISTRY_PASSWORD: '${{ secrets.SA_JSON }}'
         CF_REGISTRY_DOMAIN: 'gcr.io'
         CF_GIT_BRANCH: '${{ github.head_ref }}'
-        CF_GITHUB_TOKEN: '${{ github.token }}'
+        CF_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         CF_JIRA_INTEGRATION: 'cf-demo-jira'
         CF_JIRA_PROJECT_PREFIX: 'KPT'
         CF_JIRA_MESSAGE: 'KPT-30'
