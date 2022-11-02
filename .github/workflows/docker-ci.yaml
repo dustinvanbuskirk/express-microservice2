@@ -27,7 +27,6 @@ jobs:
 
     - name: Report Image to Codefresh
       uses: codefresh-io/codefresh-report-image@latest
-      continue-on-error: true
       with:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
