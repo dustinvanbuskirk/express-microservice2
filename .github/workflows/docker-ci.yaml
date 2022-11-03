@@ -31,7 +31,7 @@ jobs:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
         CF_API_KEY: '${{ secrets.CF_API_KEY }}'
-        CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
+        CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}'
         CF_REGISTRY_USERNAME: '_json_key'
         CF_REGISTRY_PASSWORD: '${{ secrets.SA_JSON }}'
         CF_REGISTRY_DOMAIN: 'gcr.io'
