@@ -26,7 +26,7 @@ jobs:
         password: ${{ secrets.SA_JSON }}
 
     - name: Report Image to Codefresh
-      uses: codefresh-io/codefresh-report-image@latest
+      uses: codefresh-io/codefresh-report-image@0.0.157
       with:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
