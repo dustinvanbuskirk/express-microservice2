@@ -41,3 +41,6 @@ jobs:
         CF_JIRA_PROJECT_PREFIX: 'KPT'
         CF_JIRA_MESSAGE: 'KPT-30'
         CF_ENRICHERS: 'git, jira'
+        CF_LOGS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        CF_WORKFLOW_NAME: ${{ github.workflow }}
+        CF_WORKFLOW_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/docker-ci.yaml
