@@ -14,13 +14,13 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.sha }}
+      run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
 
     - name: Push To Registry
       uses: redhat-actions/push-to-registry@v2.5.1
       with:
         image: codefresh-sa/express-app
-        tags: ${{ github.sha }}
+        tags: ${{ github.event.pull_request.head.sha }}
         registry: gcr.io
         username: _json_key
         password: ${{ secrets.SA_JSON }}
@@ -31,7 +31,7 @@ jobs:
         CF_PLATFORM_URL: 'https://cf.pov.sales-dev.codefresh.io'
         CF_RUNTIME_NAME: 'pov-codefresh-istio-runtime'
         CF_API_KEY: '${{ secrets.CF_API_KEY }}'
-        CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.sha }}'
+        CF_IMAGE: 'gcr.io/codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}'
         CF_REGISTRY_USERNAME: '_json_key'
         CF_REGISTRY_PASSWORD: '${{ secrets.SA_JSON }}'
         CF_REGISTRY_DOMAIN: 'gcr.io'
