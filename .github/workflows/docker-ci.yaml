@@ -41,8 +41,8 @@ jobs:
         CF_GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         CF_JIRA_INTEGRATION: 'cf-demo-jira'
         CF_JIRA_PROJECT_PREFIX: 'KPT'
-        CF_JIRA_MESSAGE: 'KPT-30'
+        CF_JIRA_MESSAGE: '${{ github.event.pull_request.head.ref }}'
         CF_ENRICHERS: 'git, jira'
         CF_LOGS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         CF_WORKFLOW_NAME: ${{ github.workflow }}
-        CF_WORKFLOW_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/docker-ci.yaml
+        CF_WORKFLOW_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
