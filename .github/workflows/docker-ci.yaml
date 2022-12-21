@@ -15,9 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # - name: Build the Docker image
-    #   run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
-
     - name: Buildah Action
       id: build-image
       uses: redhat-actions/buildah-build@v2
