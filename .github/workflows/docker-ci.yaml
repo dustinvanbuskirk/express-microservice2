@@ -15,11 +15,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
+    # - name: Build the Docker image
+    #   run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
+
+    - name: Buildah Action
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: codefresh-sa/express-app
+        tags: ${{ github.sha }}
+        containerfiles: |
+          ./Dockerfile
 
     - name: Push To Registry
-      uses: redhat-actions/push-to-registry@v2.6
+      uses: redhat-actions/push-to-registry@v2
       with:
         image: codefresh-sa/express-app
         tags: ${{ github.event.pull_request.head.sha }}
