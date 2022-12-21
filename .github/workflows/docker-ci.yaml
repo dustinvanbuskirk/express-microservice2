@@ -23,7 +23,7 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: codefresh-sa/express-app
-        tags: ${{ github.sha }}
+        tags: ${{ github.event.pull_request.head.sha }}
         containerfiles: |
           ./Dockerfile
 
