@@ -19,7 +19,7 @@ jobs:
       run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
 
     - name: Push To Registry
-      uses: redhat-actions/push-to-registry@v2.5.1
+      uses: redhat-actions/push-to-registry@v2.6
       with:
         image: codefresh-sa/express-app
         tags: ${{ github.event.pull_request.head.sha }}
