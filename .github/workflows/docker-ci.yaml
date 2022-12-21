@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag gcr.io/codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
+      run: docker build . --file Dockerfile --tag codefresh-sa/express-app:${{ github.event.pull_request.head.sha }}
 
     - name: Push To Registry
       uses: redhat-actions/push-to-registry@v2.5.1
