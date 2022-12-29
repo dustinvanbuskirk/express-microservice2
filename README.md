@@ -3,4 +3,4 @@ An express microservice used to demo
 
 Triggers a CI pipeline in CSDP
 
-Trigger workflow 65
+Trigger workflow 66
